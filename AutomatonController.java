@@ -10,6 +10,7 @@ public class AutomatonController
     // Question 25: The reset method typically restores the automaton to its initial state.
     // Question 26: In the java.util.Arrays class, the methods that take a parameter of type int[] are: the Arrays.fill(int[]array, int val) and Arrays.fill(int[] array, int fromIndex, int val)
     // Question 27: a- yes, the automaton will behave differently by creating more complex patterns as the cells evolve over time (the patterns may be more dynamic) b- yes, the automaton's behaviour is deterministic, Mmeaning that giving the same initial state and set of rules, the automaton will always produce the same pattern (but theu will change because of the different starting condition)
+    // Question 30: We can store previous values in memory instead of using the nextState Array
     private Automaton auto;
     
     /**

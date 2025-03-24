@@ -52,15 +52,17 @@ public class Automaton
         // Use 0 for the non-existent value to the left of
         // the first cell.
 
-        //Question 29
+        //Question 31
+        int left = 0;
+        int center = state[0];
         for (int i = 0; i < state.length; i++) {
-            int left = (i == 0) ? 0 : state[i - 1];
-            int right = (i == state.length - 1) ? 0 : state[i + 1];
-            nextState[i] = (left + state[i] + right) % 2;
+        int right = (i + 1 < state.length) ? state[i + 1] : 0;
+        nextState[i] = (left + center + right) % 2;
+        left = center;
+        center = right;
         }
-
-        state = nextState;
     }
+
     
     /**
      * Reset the automaton.

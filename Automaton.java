@@ -51,7 +51,8 @@ public class Automaton
         int[] nextState = new int[state.length];
         // Use 0 for the non-existent value to the left of
         // the first cell.
-        //Question 28
+
+        //Question 29
         for (int i = 0; i < state.length; i++) {
             int left = (i == 0) ? 0 : state[i - 1];
             int right = (i == state.length - 1) ? 0 : state[i + 1];

@@ -51,14 +51,13 @@ public class Automaton
         int[] nextState = new int[state.length];
         // Use 0 for the non-existent value to the left of
         // the first cell.
-        int left = 0;
-        int center = state[0];
-        for(int i = 0; i < numberOfCells; i++) {
-            int right = state[i + 1];
-            nextState[i] = calculateNextState(left, center, right);
-            left = center;
-            center = right;
+        //Question 28
+        for (int i = 0; i < state.length; i++) {
+            int left = (i == 0) ? 0 : state[i - 1];
+            int right = (i == state.length - 1) ? 0 : state[i + 1];
+            nextState[i] = (left + state[i] + right) % 2;
         }
+
         state = nextState;
     }
     

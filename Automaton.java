@@ -57,7 +57,8 @@ public class Automaton
         int center = state[0];
         for (int i = 0; i < state.length; i++) {
              int right = (i + 1 < state.length) ? state[i + 1] : 0;
-             nextState[i] = (left + center + right) % 2;
+             //Question 32
+             nextState[i] = calculateNextState(left, center, right);
              left = center;
              center = right;
         }
@@ -86,8 +87,8 @@ public class Automaton
      * @return The new value of center (0 or 1).
      */
     private int calculateNextState(int left, int center, int right)
-    {
-        return stateTable[encodeTriplet(left, center, right)];
+    {// Questiob 32
+      return (left + center + right) % 2;
     }
     
     /**
@@ -102,5 +103,4 @@ public class Automaton
     {
         return left * 4 + center * 2 + right;
     }
-
 }
